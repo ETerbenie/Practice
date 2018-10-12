@@ -1,0 +1,290 @@
+/**************************
+General
+*************************/
+
+body {
+  font-family: 'Poiret One', cursive;
+}
+
+/*
+#wrapper {
+  max-width:940px;
+  margin: 0 auto;
+  padding: 0 5%;
+}*/
+
+
+
+/*************************
+Header
+*************************/
+header {
+  float: left;
+  margin: 0 0 30px 0;
+  padding: 5px 0 0 0; /* top - right -bottom - left (always start at top and rotate clockwise) */
+  width: 100%; /* we want this element to stretch the entire page, so we use 100% */
+}
+
+
+
+
+#logo {
+  text-align: center;
+  margin: 0;
+}
+
+h1 {
+  font-family: 'Cinzel', serif;
+  margin: 15px 0;
+  font-size: 1.75em;
+  font-weight: normal;
+  line-height: 0.8em;
+}
+
+
+
+
+
+
+/**************************
+Navigation
+**************************/
+
+nav {
+  text-align: center;
+  padding: 10px 0;
+  margin: 20px 0 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav ul li a {
+  list-style-type: none;
+}
+
+
+
+
+/**************************
+Buttons
+**************************/
+
+div section ul li {
+  list-style-type: none;
+}
+
+#relationship {
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  outline: none;
+  color: #fff;
+  background-color: #FF0000;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  display: inline;
+  margin: 0px 0px 0px 150px
+}
+
+#relationship:hover {background-color: #F7786B}
+
+#relationship:active {
+  background-color: #F7786B;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#career {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  outline: none;
+  color: #fff;
+  background-color: #6495ED;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  display: inline;
+  margin: 0px 300px 0px 0px
+}
+
+#career:hover {background-color: #98DDDE}
+
+#career:active {
+  background-color: #98DDDE;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#health {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  outline: none;
+  color: #fff;
+  background-color: #FF1493;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 90px 40px 10px 40px;
+  width: auto;
+  display: inline;
+
+}
+
+#health:hover {background-color: #F7CAC9}
+
+#health:active {
+  background-color: #F7CAC9;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#finance {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  outline: none;
+  color: #fff;
+  background-color: #228B22;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  display: inline-block;
+  margin: 90px 40px 10px 40px;
+}
+
+#finance:hover {background-color: #92B558}
+
+#finance:active {
+  background-color: #92B558;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#negative {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: left;
+  outline: none;
+  color: #fff;
+  background-color: #000;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 200px 0px 0px 0px
+}
+
+#negative:hover {background-color: #a6a6a6}
+
+#negative:active {
+  background-color: #a6a6a6;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#positive {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-bottom: auto;
+  outline: none;
+  color: #000;
+  background-color: #FFFF00;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  margin: 200px 0px 0px 0px
+}
+
+#positive:hover {background-color: #ffff66}
+
+#positive:active {
+  background-color: #ffff66;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+#submit {
+  list-style-type: none;
+  padding: 15px 25px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-bottom: auto;
+  outline: none;
+  color: #000;
+  background-color: #FFFF00;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+
+
+
+
+
+/******************************
+Colors
+******************************/
+
+body {
+  background-color: #fff;
+  color: #999;
+}
+
+header {
+  background: #00ccff;
+  border-color: #599a68;
+}
+
+nav {
+  backgound: ##599a68;
+}
+
+h1 {
+  color: #fff;
+  text-align: center;
+}
+
+a {
+  color: #00ccff;
+}
+
+nav a, nav a:visited {
+  color: #fff;
+}
+
+nav a.selected, nav a:hover {
+  color: #32673f;
+}
