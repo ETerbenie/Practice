@@ -1,0 +1,21 @@
+import React from 'react';
+
+
+
+
+const startingValue = (props) => {
+    return (
+        <div>
+            <p>Starting Value</p>
+            <input type="number" 
+            onChange={props.changed} 
+            value={props.remainderworkhours} 
+            
+            />
+        </div>
+    )
+};
+
+
+
+export default startingValue;
