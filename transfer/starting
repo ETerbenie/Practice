@@ -3,13 +3,27 @@ import React from 'react';
 
 
 
-const startingValue = (props) => {
+const StartingValue = (props) => {
     return (
         <div>
-            <p>Starting Value</p>
+            <p>Remaining Work Hours</p>
             <input type="number" 
             onChange={props.changed} 
             value={props.remainderworkhours} 
+            
+            
+            />
+        </div>
+    )
+};
+
+const RemainingDrivingHours = (props) => {
+    return (
+        <div>
+            <p>Remaining Drive Hours</p>
+            <input type="number"
+            onChange={props.drivechange}
+
             
             />
         </div>
@@ -18,4 +32,8 @@ const startingValue = (props) => {
 
 
 
-export default startingValue;
+
+export {
+    StartingValue,
+    RemainingDrivingHours
+} 
