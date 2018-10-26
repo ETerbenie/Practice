@@ -1,102 +1,183 @@
 import React, { Component } from 'react';
-import Person from './Person/Person';
+
+// Components
+import { StartingValue, RemainingDrivingHours } from './components/StartingValue/StartingValue';
+import EndingValue from './components/EndingValue/EndingValue'
+
+
 import './App.css';
 
+
 class App extends Component {
-  state = {
-    persons: [
-      { name: 'Max', age: 28 },
-      { name : 'Manu', age: 29 },
-      { name: 'Stephanie', age: 26 }
-    ]
-  }
+  
+  
+   state = {
+      workhours: 14,
+      drivehours: 11,
+      remainderworkhours: "",
+      remainderdrivehours: "",
+      startingvalue: "",
+      endingstartingvalue: ""
+    }
+  
+  
+  
 
-
-  switchNameHandler = (newName) => {
-    // console.log('This was clicked!');
-    // DON'T DO This - this.state.persons[0].name = 'Maximilian';
+  calculateWorkHours = (e) => {
+    
     this.setState({
-      persons: [
-        { name: newName, age: 28 },
-        { name : 'Jacob', age: 29 },
-        { name: 'Stephanie', age: 23 }
-      ],
-      otherStates: 'some other value',
-      showPersons: false
-    })
-  };
-
-
-  nameChangedHandler = (event) => {
-    this.setState( {
-      persons: [
-        { name: 'Max', age: 28 },
-        { name : event.target.value, age: 29 },
-        { name: 'Stephanie', age: 26 }
-      ]
-    })
+      remainderworkhours:  14 - e.target.value 
+    });
   }
 
-
-  togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
-  };
+  calculateDriveHours = (e) => {
+    this.setState({
+      remainderdrivehours: 11 - e.target.value
+    });
+  }; 
 
 
   render() {
 
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
+    // const inputField = {
+    //   textAlign: 'center'
+    // }
 
-    };
+    return (
+      <div>
+        <StartingValue 
+        changed={this.calculateWorkHours.bind(this)}
+        
+        />
 
+        <button
+        onClick={event => console.log(this.state.remainderworkhours)}
+        
+        >Calculate Remaining Work Hours</button>
 
+        <RemainingDrivingHours 
+        drivechange={this.calculateDriveHours.bind(this)}
+        />
 
-    return(
-      <div className='App'>
-        <h1>Hi, I'm a React App too!</h1>
-        <button 
-        style={style}
-        onClick={this.togglePersonsHandler}>Switch Name</button>
-        { 
-          this.state.showPersons === true ? 
-          <div >
-            <Person 
-            name={this.state.persons[0].name} 
-            age={this.state.persons[0].age} 
-            />
+        <button
+        onClick={e => console.log(this.state.remainderdrivehours)}
+        >Calculate Remaining Driving Hours</button>
+        <EndingValue
+        
+        />
 
-            <Person 
-            name={this.state.persons[1].name} 
-            age={this.state.persons[1].age}
-            click={this.switchNameHandler.bind(this, 'OMG Steve')} 
-            changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
-
-            <Person 
-            name={this.state.persons[2].name} 
-            age={this.state.persons[2].age}
-            />
-        </div> : null
-        }
+        
+        
 
       </div>
     );
-
-
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Hi, I\'m a React App')); it's the same thing 
-
-
-
-
-   
-  }
+  } 
 }
 
 export default App;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Userinput/Out Assignment 
+
+
+// import React, { Component } from 'react';
+
+// import UserInput from './components/UserInput/UserInput';
+// import UserOutput from './components/UserOutput/UserOutput';
+// import './App.css';
+
+// class App extends Component {
+
+//   state = {
+//     userName: "testing",
+//   }
+
+//   userNameChangedHandler = (event) => {
+//     this.setState({userName: event.target.value})
+//   };
+
+  
+
+
+
+
+
+//   render() {
+
+    
+
+
+
+
+
+//     return (
+//       <div >
+
+//         <UserInput 
+//           changed={this.userNameChangedHandler}
+//           currentName={this.state.userName}
+          
+//         />
+
+//         <UserOutput 
+//           userName={this.state.userName}
+//         />
+
+//         <UserOutput 
+//           userName={this.state.userName}
+//         />
+
+//         <UserOutput 
+//           userName="Jacob"
+//         />
+
+//         <button
+//           // onClick={this.checkUserHandler}
+//         >Submit</button>
+//       </div>
+//     );
+//   }
+// }
+
+// export default App;
