@@ -5,72 +5,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/stylesheets/main.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <!-- This is the entire container -->
-    <div class="container">
-
-        <!-- Start of the header on wbepage -->
-        <header class="header">
-            <img src="enter loo path here" alt="Logo" class="header-logo">
-            <form class="search">
-                <input type="text" class="search-field" placeholder="Search comics">
-                <button class="btn search-btn">
-                    <svg class="search-icon">
-                        <use href="enter search icon"></use>
-                    </svg>
-                    <span>Search</span>
-                </button>
-            </form>
-
-            <!-- This is the likes panel -->
-            <div class="likes">
-                <div class="likes-field">
-                    <svg class="likes-icon">
-                        <use href="enter likes icon"></use>
-                    </svg>
-                </div>
-
-                <div class="likes-panel">
-                    <ul class="likes-list">
-
-                    </ul>
-                </div>
-            </div>
-        </header>
-        <!-- End of the header -->
-
-
-        <!-- Start displaying results from search-->
-        <div class="results">
-            <ul class="results-list">
-
-            </ul>
-
-            <!-- Info about the hero -->
-            <div class="results-page">
-
-            </div>
-        </div>
-
-        <!-- Starting to list superheroes -->
-        <div class="superhero">
-
-        </div>
-
-        <!-- Enter the comic series -->
-        <div class="comic">
-            <h2 class="header-2">Comic Series</h2>
-
-            <ul class="comic-list">
-
-            </ul>
-
-            <!-- Footer, copywright -->
-        </div>
-    </div>
+    <header class="container">
+        <h1>
+            <a href="index.html">Styles Conference</a>
+        </h1>
+        <h3>August 24&ndash;26th &mdash; Chicago, IL</h3>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="schedule.html">Schedule</a>
+        <a href="venue.html">Venue</a>
+        <a href="register.html">Register</a>
+    </nav>
+    </header>
+    <section class=" hero container">
+        <h2>Dedicated to the Craft of Building Websites</h2>
+        <p>Every year the brightest web designers and front-end developers descend on Chicago to discuss the latest technologies. Join us this August!</p>
+        <a class="btn btn-alt" href="register.html">Register Now</a>
+    </section>
+    <section class="container">
+        <section>
+            <a href="speakers.html">
+                <h5>Speakers</h5>
+                <h3>World-Class Speakers</h3>
+            </a>
+            <p>Joining us from all around the world are over twenty fantastic speakers, here to share their stories.</p>
+        </section>
+        <section>
+            <a href="schedule.html">
+                <h5>Schedule</h5>
+                <h3>3 Inspiring Days</h3>
+            </a>
+            <p>Enjoy 3 days od action packed talks, gathering, and all arounnd good time</p>
+        </section>
+        <section>
+            <a href="venue.html">
+                <h5>Venue pages</h5>
+                <h3>The Chicago Theatre</h3>
+            </a>
+            <p>Within the heart of downtown Chicago, will provide a beautiful conference </p>
+        </section>
+    </section>
+    <footer class="container">
+        <small>&copy; Styles Conference</small>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="venue.html">Venue</a>
+            <a href="register.html">Register</a>
+        </nav>
+    </footer>
 </body>
 </html>
