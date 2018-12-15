@@ -1,0 +1,341 @@
+Unable to login/pw reset:
+
+Hello,
+
+
+
+
+
+These are the following steps to best troubleshoot to correct login problems:
+
+Force Stop : 
+
+
+
+Android Devices :
+
+
+
+Go to the settings of your phone, once inside go to apps or application manager. Locate the Transflo app the (the list is usually in alphabetical order) and then select force stop, it will prompt you with "Are you sure you want to force close the app" and you want to respond with yes. After that is done, go ahead and relaunch the app and attempt to login again.  
+
+Apple Devices : 
+
+1. Double tap your Home button (the middle button on your phone)
+
+
+
+2. When you do this step, all your application windows will pop out at you visually 
+
+
+
+3. Search for the Transflo app and drag it up off of your screen to "force close" the current sessions of the app
+
+
+
+4. Once the previous step has been completed, go ahead and re-open the Transflo application, and you will be running with a new sessions of the app. 
+
+
+Reset ELD : 
+
+
+
+On the main page of the Transflo app go to Profile/Settings, then click on settings. From there you will see a Reset ELD button, click on it and confirm that you want to continue. Once you've done that step, go ahead and attempt to login again. 
+
+
+
+
+Reset Password : 
+
+
+
+Transflo HOS Users : 
+
+
+
+On the main page of the Transflo app go to Account Settings/Profile Settings and then click on logout. From there you will be on the welcome page of the Transflo HOS app, you will see a "Forgot Password" option, click on that and follow the steps to reset your password, thank you. 
+
+
+
+
+Transflo Mobile + Users : 
+
+
+
+Unfortunately, we are unable to reset passwords, you will have to contact your company admin and have them reset your password for you. 
+
+/////////////////////////////////////////////////////
+
+Malfunction notice:
+Hello John,
+
+
+No response from customer
+
+
+Your database is currently on a server that is encountering service disruptions, unfortunately due to these disruptions, you will not be able to login to do your daily duties. This email is sent to notify you there is a malfunction occurring with your ELD and it is recommended to switch to paper logs until this problem is resolved. We apologize for any inconvenience, thank you. 
+
+///////////////////////////////////////////////////
+
+Unable to login - server disruption :
+Ok it looks like your database is undergoing server maintenance and is having disruptions, which is why you are showing this inability to login
+
+You have two options form here, the first one is you can use paper logs and I can send you an email indicating the ELD malfunction and the approved usage of the paper logs or I can should you a different method that would require you to download another app and enter some additional information
+
+/////////////////////////////////////////////////////
+
+Add servers to this Geotab ticket : 436697
+
+/////////////////////////////////////////////
+
+Geotab ticket:
+EOL Logistics - Reference Error:Can't find vairable:availabilityHours - 110427
+
+Users (eharris.eol@gmail.com ) that are attempting to use the HOS portion of their app are encountering the error: "ReferenceError:Can't find variable:availabilityHours", the users are unable to bypass this error to select any status, edit logs, activate PC/YM, etc. This error is starting to occur over multiple databases/users/ We need to address this SAP since drivers are unable to select any status to indicate break, use PC, etc. (I've attached a screenshot of the error)
+
+
+//////////////////////////////////////////////////
+How to Compiance print:
+
+1. Login to your database
+
+2. Click on Activity, then HOS, then Duty Status Logs
+
+3. Search for the correct driver with the correct time frame and apply changes
+
+4. Once the logs are generated, you will click on Compliance print at the top
+//////////////////////
+
+***Retail Server restart***
+
+We're currently experiencing a problem with our servers, live data that is being recorded by the ELD isn't being adjuted automatically. We're
+reseeting our server so users in general will momentarily be unable to login/make any changes to logs. Once we've updated this issue, any live data will be backlogged and populated 
+back into driver's profiles. We apologize  for any  inconvenience. 
+//////////////////////
+
+Automatic Drive log explanation, next time use PC
+
+Automatic Drive logs are recorded whenever you move the vehicle above 5 mph, regardless of what status you are in (with the exception of YM and PC). Since you moved the vehicle above 5 mph it created an automatic Drive log in your profile, unfortunately there isn't really anything that can be done in this instance since the FMCSA doesn't allow the editing of automatic Drive logs. The only thing that can be done is annotating the Drive log indicating what happened. Going forward if you have to move the vehicle but still maintain an OFF duty status, I recommend using Personal Use (PC) so that it doesn't effect your rest break, or potentially give you violations. Thank you. 
+
+////////////////////////////////////////
+
+
+We were experiencing a problem with our servers, live data that was being recorded wasn't being added automatically and were being back logged instead, which is why it wasn't visible to any user.  We've reset the servers and the backlog data is being repopulated, we apologize for any inconvenience, thank you, 
+///////
+
+PC engine cycle 
+
+Hello,
+
+The reason why that happened is because when you place yourself into PC mode and then turn your engine off, it changes your status to an OFF duty status so you are no longer in PC. If you turn your engine on, within the app it prompts you "Do you want to remain in PC, yes or no" if you don't select anything it will keep you in OFF duty, therefore if you move above 5 mph an automatic D log is created. The only way to counteract this is to always make sure when you turn your engine on, that you are still in PC status. 
+
+Unfortunately, the FMCSA does not allow the editing automatic Drive logs. This particular rule with the PC engine cycle is located within the mandate which is why the FMCSA does not allow the removal of this mistake. The only thing that can be done is editing the Drive log, indicating what happened. 
+
+
+
+////////////////////////////////////////////////
+
+Where was this?
+
+Thank you for reaching out to support, the way the system works is that the ELD has has a SIM card that always has an internet connection, from there it uploads information to our servers to store that information. From there a driver would use a tablet/phone to use the app to access the server in order to retrieve that information. Therefore, if the device is indicating that error message, then there's a communication problem with the tablet/phone the driver is using connecting to the servers (usually stemming from a data connection problem), and not with the ELD. Generally the information is automatically populated into the the servers, and once the user obtains a data connection again, then they would have that information automatically generated back into their profile once they receive internet connection again. 
+
+/////////////////////////////////////////////
+
+Fuel Tracker :  how much fuel has been inputted into the vehicle, manually enter through app
+
+Fill-ups : 
+
+/////////////////////////////////////////////////
+
+1803 error in locations/miles : 
+
+Hello,
+
+Thank you for reaching out to support, currently we are experiencing server problems with the upgraded 1803 servers. They are displaying "Error" in the locations and miles and aren't able to view their accurate information within the web portal, additionally, app users are encountering similar problems with the information not registering correctly and having a pop screen stating "unable to connect to servers". Information is still being recorded accurately from the ELD, it's just not reflecting onto the servers for some particular reason. We are actively trying to correct these problems, and we apologize for any inconvenience, thank you.  
+///////////////////////////////
+How to move logs : 
+
+Follow these directions : 
+
+
+
+1. Go to my.transfloeld.com/retaileld1
+
+
+
+2. Click on Activity --> HOS --> Duty Status Logs 
+
+
+
+3. Search for the driver with the wrong logs
+
+
+
+4. When you click on apply changes, on the top right of your screen you will see an arrow point down, choose that click on "select" individual"
+
+
+
+5. Click the bubbles of the logs you want to move
+
+
+
+6. Click on edit selected HOS logs
+
+
+
+7. Then click on change with
+
+
+
+8. Select the correct driver for the logs
+
+
+9. Add an annotation explaining the movement of log(s)
+
+
+10. Then click on save
+/////////////////////////////////////////////////////////////////////////////
+No Connection to the Vechiel, Please ensure Telematicis :
+
+The system works in 3 parts, the device you're using (phone or tablet) collects information from your use inputs and sends information to our servers (this requires a stable internet connection), the servers then collect and stores that information. The ELD itself works in a similar fashion, it records automatic D & ON logs from the movement of the vehicle, and then sends that information to the servers. There isn't any direct communication between your phone/tablet and the ELD, it's all communicated on the servers. The reason why that red banner is populated at the top of your app is because the device you're using doesn't have a stable enough connection to maintain connection to the servers when using the application, this is why the application requires internet connection in order to use it. Once your phone/tablet establishes a stable enough internet connection, then that error message disappears. 
+
+////////////////////////////////////////////////////////////////////////////////fuelcarriers+4@gmail.com
+Continuous Drive log for days : 
+
+Hello,
+
+Thank you for reaching out to ELD support, the reason why you are having that Drive log that is lasting for days is because the ELD is always meant to switch from an automatic Drive status to an automatic ON status after 5 minutes of idling. It looks like you uninstalled the ELD while the device was still in the drive status, which is why you're seeing that Drive log repeating for days. The ELD is not meant to be uninstalled because it does take you out of compliance. If there is ever any reason that you would need to uninstall the ELD, then ensure that your current status is not in Drive or else it will continue to repeat. 
+
+Unfortunately, since this was an automatic Drive log it cannot be edited/removed, the only thing that can be  done is annotating the Drive log indicating what happened. 
+////////////////////////////////////////////////////////////
+Customer wants to cancel :
+
+Hello,
+
+
+
+Thank you for reaching out to ELD support, in order to cancel there are a few things that we require in order to confirm the cancellation : 
+
+
+1. Username (email address you registered with):
+
+
+
+2. ELD serial number:
+
+
+3. The reason you want to cancel: 
+
+
+4. How do you want to cancel - suspend or termination  : 
+
+
+
+Suspend mode : 
+
+
+
+This still charges $10/month, but it keeps the ELD in an inactive state so that it is able to be used in the future. The reason for this charge is because each ELD has a SIM card located within it in order for the ELD to transmit data to our servers through an internet connection. In order to maintain that SIM card, we have that $10/month charge. 
+
+
+
+Termination : 
+
+
+
+This terminates the SIM card within the ELD from being used further. When this process is done, the ELD is no longer able to be used for future use.
+
+
+Please respond back with these 4 things, and we will continue with your cancellation request. 
+//////////////////////////////////////////////////////////
+Accidentally used YM : 
+
+Thank you for reaching out to ELD support, YM and PC are considered exemption statuses. Under the FMCSA mandate, exemption status are consider movement logs and are permanent on a user's profile, there isn't anyway to remove those type of statuses from a profile. The only thing that can be done is annotating the log indicating what happened. 
+////////////////////////////////////////////////////
+
+
+
+
+1. Happiness doesn't come from big pieces, small advantages hammered in everyday 
+
+2. Life is plastic, power to mold ourselves, final product in mind 
+
+3. Success is a pleasure, 
+
+Jose Moran 
+
+sonsonateayalaoo7@gmail.com
+
+july 1 9/30
+
+conniebarra@yahoo.com
+
+jewhalin57@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Danger Zone:
+
+832 274 8133 - Dennis Simmons - Don't do it
+980-267-0495 - Dick at far east trucking : Nope 
+803-747-2815 - Avoid!
+567-395-0944 - Christopher Beene - Terrible damn driver 
+770-912-4042 - Darryl Hinton, PC fool 
+973-460-9242 - Disla Transport, avoid too stupid 
+720-965-7519 - It's a trap!
+405-587-0707 - Team driving idiots  
+954-553-8607 - Complete idiot 
+770-547-8828 - Lost Cause 
+
+
+Call Count - Ticket Count :
+
+1: Mila 
+
+
+
+1. describing UI
+2. why thos elogs need to go there, 
+3. Falsifying logs (ex mechanic)
+4. we can't be held liable for moving 
+
+Forget
+Action
+State
+Teach
+
+Keys for Memory
+---------------  
+Motivation
+Observation
+Mechanics
+
+
+Cindy : 3
+Betty : 3
+Kath Burns : 1
+Nate Brown : 1
+Garrison : 3
+Rey : 3
+Erin : 1 
+Emily : 2
+Brent : 2
+Oscar : 1
+
+
+
+Marcus
+Mike
+Jonah
+AJ
+John
