@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		 <title>Trainee Drop-Off Message</title>
+		 <meta charset="utf-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">			
+			function getUrlParameter(sParam) {
+				var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+					sURLVariables = sPageURL.split('&'),
+					sParameterName,
+					i;
+
+				for (i = 0; i < sURLVariables.length; i++) {
+					sParameterName = sURLVariables[i].split('=');
+
+					if (sParameterName[0] === sParam) {
+						return sParameterName[1] === undefined ? "" : sParameterName[1];
+					}
+				}
+			};
+			
+			window.onload = function(){
+				document.getElementById("trainerDC").value = getUrlParameter("DriverID");
+			};
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<form name="webform" id="webform"">
+			<div class="row">	 
+			<div class="col-xs-12">
+				<div>
+					<br>
+					<label>*Trainer Driver Code</label>
+					<input required type="text" id="trainerDC" size="6" maxlength="6"/>
+					<br><em hidden style="color:Red" id="trainerDCEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Trainee Driver Code</label>
+					<input required type="text" id="traineeDC" size="6" maxlength="6"/>
+					<br><em hidden style="color:Red" id="traineeDCEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Date of drop-off</label>
+					<input type="date" id="dropoffDate"/>
+					<br><em hidden style="color:Red" id="dropoffDateEM">Please enter a value</em>
+				</div>				
+				<div>
+					<br>
+					<label>*Time of drop-off</label><br>
+					<input required type="time" id="dropoffTime"/>
+					<br><em hidden style="color:Red" id="dropoffTimeEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>Drop-off Location:</label>
+					<input required type="text" id="dropoffLoc" size="20" maxlength="20"/>
+					<br><em hidden style="color:Red" id="dropoffLocEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>Training Paperwork Transflo</label>
+					<label>Confirmation Number</lablel>
+					<input required type="text" id="confNum1" size="4" maxlength="4"/><label>-</label><input required type="text" id="confNum2" size="4" maxlength="4"/><label>-</label><input required type="text" id="confNum3" size="4" maxlength="4"/><label>-</label><input required type="text" id="confNum4" size="4" maxlength="4"/>
+					<br><em hidden style="color:Red" id="confNumEM">Please enter all values</em>
+				</div>
+				<div>
+					<br>
+					<label>Did you recommend this trainee for</label><br>
+					<label>upgrade (Y/N)</label>
+					<input required type="text" id="upgradeYN" size="1" maxlength="1"/>
+					<br><em hidden style="color:Red" id="upgradeYNEM">Please enter a value</em>				
+				<div>
+				<div class="form-group">
+				  <br>
+				  <label for="Reason">Reason:</label>
+				  <textarea class="form-control" rows="3"  id="Reason" maxlength='106'></textarea>
+				</div>  
+				<div>
+					<br>
+					<label>
+						In order to obtain the upgrade bonues,<br>
+						all applicable training paperowrk must<br>
+						be submitted to the training dept.
+					</label>
+				</div>
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2">
+						<div class="col-xs-2">
+							<input class="btn btn-info" type="button" value="Submit" onClick="sendToTransFlo()"><br><br>
+						</div>
+					</div>
+				</div>
+			</form>
+			<script type="application/javascript">				
+				
+				function sendToTransFlo() {	
+					var trainerDC = document.getElementById('trainerDC').value;
+					var traineeDC = document.getElementById('traineeDC').value;
+					var tempDropoffDate = document.getElementById('dropoffDate').value;
+					var tempDropoffTime = document.getElementById('dropoffTime').value;
+					var dropoffLoc = document.getElementById('dropoffLoc').value;
+					var confNum1 = document.getElementById('confNum1').value;
+					var confNum2 = document.getElementById('confNum2').value;
+					var confNum3 = document.getElementById('confNum3').value;
+					var confNum4 = document.getElementById('confNum4').value;
+					var upgradeYN = document.getElementById('upgradeYN').value;
+					var Reason = document.getElementById('Reason').value;
+					
+					//validate field values are correct/not null
+					if (trainerDC.length == 0) {
+						document.getElementById('trainerDCEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('trainerDCEM').setAttribute("hidden",true);
+					}
+					if (traineeDC.length == 0) {
+						document.getElementById('traineeDCEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('traineeDCEM').setAttribute("hidden",true);
+					}
+					if (tempDropoffDate.length == 0) {
+						document.getElementById('dropoffDateEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('dropoffDateEM').setAttribute("hidden",true);
+					}
+					if (tempDropoffTime.length == 0) {
+						document.getElementById('dropoffTimeEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('dropoffTimeEM').setAttribute("hidden",true);
+					}
+					if (dropoffLoc.length == 0) {
+						document.getElementById('dropoffLocEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('dropoffLocEM').setAttribute("hidden",true);
+					}
+					alert("confNum1.length = " + confNum1.length);
+					if ((confNum1.length != 4) || (confNum2.length != 4) ||(confNum3.length != 4) || (confNum4.length != 4)) {
+						document.getElementById('confNumEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('confNumEM').setAttribute("hidden",true);
+					}
+					if (upgradeYN.length == 0) {
+						document.getElementById('upgradeYNEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('upgradeYNEM').setAttribute("hidden",true);
+					}				
+					
+					//reformat the date/time values into MM/DD/YY
+					var dropoffDate = tempDropoffDate.substr(5,2) + tempDropoffDate.substr(8,2) + tempDropoffDate.substr(2,2);
+					var dropoffTime = tempDropoffTime.substr(0,2) + tempDropoffTime.substr(3,2);
+					
+					//create JSON to pass back data to webservice
+					var json = JSON.stringify(
+							{
+								"metafields": [
+									{
+										"id": "trainerDC",
+										"value": trainerDC
+									},
+									{
+										"id": "traineeDC",
+										"value": traineeDC
+									},
+									{
+										"id": "dropoffDate",
+										"value": dropoffDate
+									},
+									{
+										"id": "dropoffTime",
+										"value": dropoffTime
+									},
+									{
+										"id": "dropoffLoc",
+										"value": dropoffLoc
+									},
+									{
+										"id": "confNum1",
+										"value": confNum1
+									},
+									{
+										"id": "confNum2",
+										"value": confNum2
+									},
+									{
+										"id": "confNum3",
+										"value": confNum3
+									},
+									{
+										"id": "confNum4",
+										"value": confNum4
+									},
+									{
+										"id": "upgradeYN",
+										"value": upgradeYN
+									},
+									{
+										"id": "Reason",
+										"value": Reason
+									}
+								]
+							});
+					//alert(json);
+
+					TRANSFLOWebFormListener.formSubmitted(json);
+					document.getElementById('webform').submit();										
+				}
+				
+			</script>
+		</div>
+	</body>
+</html>

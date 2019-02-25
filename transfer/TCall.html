@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		 <title>T-Call</title>
+		 <meta charset="utf-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+		 <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+		<script type="text/javascript">			
+			function check(e,value)
+			{
+				//Check Charater
+				var unicode=e.charCode? e.charCode : e.keyCode;
+				if (value.indexOf(".") != -1)if( unicode == 46 )return false;
+				if (unicode!=8)if((unicode<48||unicode>57)&&unicode!=46)return false;
+			}
+			function checkLength(len,ele){
+			  var fieldLength = ele.value.length;
+			  if(fieldLength <= len){
+				return true;
+			  }
+			  else
+			  {
+				var str = ele.value;
+				str = str.substring(0, str.length - 1);
+				ele.value = str;
+			  }
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<form name="webform" id="webform"">
+			<div class="row">	 
+			<div class="col-xs-12">
+				<div>
+					<br>
+					<label>*Load #</label>
+					<input required type="text" id="loadNum" size="7" maxlength="7"/>
+					<br><em hidden style="color:Red" id="loadNumEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Dropped Trailer #</label>
+					<input required type="text" id="dropTrailerNum" size="6" maxlength="6"/>
+					<br><em hidden style="color:Red" id="dropTrailerNumEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>Next Trailer Picked Up</label>
+					<input type="text" id="nextTrailer" size="6" maxlength="6"/>
+				</div>
+				<div>
+					<br>
+					<label>*PTA Date For Next Disptach</label>
+					<input required type="date" id="ptaDate"/>
+					<br><em hidden style="color:Red" id="ptaDateEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*PTA Time For Next Disptach</label><br>
+					<input type="text" id="ptaTime" size="10" maxlength="4"/>
+					<br><em hidden style="color:Red" id="ptaTimeEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Projected Hours You Have Before Next 10 Hour Break (HHMM)?</label><br>
+					<input type="text" id="hoursToBreak" size="10" maxlength="4"/>					
+					<br><em hidden style="color:Red" id="hoursToBreakEM">Please enter a valid value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Where is Trailer Dropped?</label>
+					<input required type="text" id="trailerLoc" size="30" maxlength="30"/>
+					<br><em hidden style="color:Red" id="trailerLocEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>Where is paperwork? Select one below</label><br>
+					<label>Nosebox</label>&nbsp;<input type="radio" name="paperwork" id="noseBox"/>&nbsp;<label>In Trailer</label>&nbsp;<input type="radio" name="paperwork" id="inTrailer"/>&nbsp;<label>Office</label>&nbsp;<input type="radio" name="paperwork" id="office"/>&nbsp;<label>Other</label>&nbsp;<input type="radio" name="paperwork" id="other"/>
+				</div>
+				<div>
+					<br>
+					<label>If other please explain</label>
+					<input type="text" id="otherReason" size="29" maxlength="29"/>
+					<br><em hidden style="color:Red" id="otherReasonEM">Please explain paperwork location</em>
+				</div>
+				<div>
+					<br>
+					<label>Fuel Gallons on board:</label><br>
+					<input required type="number" id="fuel" min="0" max="999" onKeyPress="return check(event,value)" onInput="checkLength(3,this)"/>
+					<br><em hidden style="color:Red" id="fuelEM">Please enter a value</em>
+				<div>
+				<div class="form-group">
+				  <br>
+				  <label for="comment">Comment:</label>
+				  <textarea class="form-control" rows="3"  id="comment" maxlength='60'></textarea>
+				</div>
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2">
+						<div class="col-xs-2">
+							<input class="btn btn-info" type="button" value="Submit" onClick="sendToTransFlo()"><br><br>
+						</div>
+					</div>
+				</div>
+			</form>
+			<script type="text/javascript">
+				$( "#ptaTime" ).timepicker({
+					timeFormat: 'HH:mm',
+					interval: 5,
+					minTime: '00:00',
+					maxTime: '23:59',
+					dynamic: false,
+					dropdown: true,
+					scrollbar: true
+				});
+				
+				$( "#hoursToBreak" ).timepicker({
+					timeFormat: 'HH:mm',
+					interval: 5,
+					minTime: '00:00',
+					maxTime: '14:00',
+					dynamic: false,
+					dropdown: true,
+					scrollbar: true
+				});
+			</script>			
+			<script type="application/javascript">				
+				
+				function sendToTransFlo() {	
+					var loadNum = document.getElementById('loadNum').value;
+					var dropTrailerNum = document.getElementById('dropTrailerNum').value;
+					var nextTrailer = document.getElementById('nextTrailer').value;
+					var tempPtaDate = document.getElementById('ptaDate').value;
+					var tempPtaTime = document.getElementById('ptaTime').value;
+					var hoursToBreakHRS = document.getElementById('hoursToBreakHRS').value;
+					var hoursToBreakMINS = document.getElementById('hoursToBreakMINS').value;
+					var trailerLoc = document.getElementById('trailerLoc').value;
+					var noseBox = document.getElementById('noseBox').checked; //true/false
+					var inTrailer = document.getElementById('inTrailer').checked;
+					var office = document.getElementById('office').checked;
+					var other = document.getElementById('other').checked;
+					var otherReason = document.getElementById('otherReason').value;
+					var fuel = document.getElementById('fuel').value;
+					var comment = document.getElementById('comment').value;
+					alert("vars loaded");
+					//validate field values are correct/not null
+					if (loadNum.length == 0) {
+						document.getElementById('loadNumEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('loadNumEM').setAttribute("hidden",true);
+					}
+					if (dropTrailerNum.length == 0) {
+						document.getElementById('dropTrailerNumEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('dropTrailerNumEM').setAttribute("hidden",true);
+					}
+					if (tempPtaDate.length == 0) {
+						document.getElementById('ptaDateEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('ptaDateEM').setAttribute("hidden",true);
+					}
+					if (tempPtaTime.length == 0) {
+						document.getElementById('ptaTimeEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('ptaTimeEM').setAttribute("hidden",true);
+					}
+					if ((hoursToBreakHRS.length == 0) || (hoursToBreakMINS == 0)) {
+						document.getElementById('hoursToBreakEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('hoursToBreakEM').setAttribute("hidden",true);
+					}
+					if (trailerLoc.length == 0) {
+						document.getElementById('trailerLocEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('trailerLocEM').setAttribute("hidden",true);
+					}
+					if (other && (otherReason.length == 0)) {
+						document.getElementById('otherReasonEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('otherReasonEM').setAttribute("hidden",true);
+					}
+					if (fuel.length == 0) {
+						document.getElementById('fuelEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('fuelEM').setAttribute("hidden",true);
+					}
+					alert("fixing radio values");
+					//blank radio selections, and replace true with X
+					if (noseBox)
+					{
+						noseBox = "X";
+					}
+					else
+					{
+						noseBox = "";
+					}
+					if (inTrailer)
+					{
+						inTrailer = "X";
+					}
+					else
+					{
+						inTrailer = "";
+					}
+					if (office)
+					{
+						office = "X";
+					}
+					else
+					{
+						office = "";
+					}
+					if (other)
+					{
+						other = "X";
+					}
+					else
+					{
+						other = "";
+					}
+					alert("vars validated");
+					//reformat the date/time values into MM/DD/YY
+					var ptaDate = tempPtaDate.substr(5,2) + tempPtaDate.substr(8,2) + tempPtaDate.substr(2,2);
+					var ptaTime = tempPtaTime.substr(0,2) + tempPtaTime.substr(3,2);
+					var hoursToBreak = hoursToBreakHRS + hoursToBreakMINS;
+					if ((hoursToBreak < 0) || (hoursToBreak > 1400))
+					{
+						document.getElementById('hoursToBreakEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('hoursToBreakEM').setAttribute("hidden",true);
+					}
+					
+					//create JSON to pass back data to webservice
+					var json = JSON.stringify(
+							{
+								"metafields": [
+									{
+										"id": "loadNum ",
+										"value": loadNum 
+									},
+									{
+										"id": "nextTrailer ",
+										"value": nextTrailer 
+									},
+									{
+										"id": "ptaDate",
+										"value": ptaDate
+									},
+									{
+										"id": "ptaTime",
+										"value": ptaTime
+									},
+									{
+										"id": "hoursToBreak",
+										"value": hoursToBreak
+									},
+									{
+										"id": "trailerLoc",
+										"value": trailerLoc
+									},
+									{
+										"id": "noseBox",
+										"value": noseBox
+									},
+									{
+										"id": "inTrailer",
+										"value": inTrailer
+									},
+									{
+										"id": "office",
+										"value": office
+									},
+									{
+										"id": "other",
+										"value": other
+									},
+									{
+										"id": "otherReason ",
+										"value": otherReason 
+									},
+									{
+										"id": "fuel ",
+										"value": fuel 
+									},
+									{
+										"id": "comment ",
+										"value": comment 
+									}
+								]
+							});
+					alert(json);
+
+					TRANSFLOWebFormListener.formSubmitted(json);
+					document.getElementById('webform').submit();										
+				}
+				
+			</script>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		 <title>Mentor Check Call</title>
+		 <meta charset="utf-8">
+		 <meta name="viewport" content="width=device-width, initial-scale=1">
+		 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">			
+			function getUrlParameter(sParam) {
+				var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+					sURLVariables = sPageURL.split('&'),
+					sParameterName,
+					i;
+
+				for (i = 0; i < sURLVariables.length; i++) {
+					sParameterName = sURLVariables[i].split('=');
+
+					if (sParameterName[0] === sParam) {
+						return sParameterName[1] === undefined ? "" : sParameterName[1];
+					}
+				}
+			};
+			
+			var DriverID = getUrlParameter("DriverID");
+		</script>
+	</head>
+	<body>
+		<div class="container-fluid">
+			<form name="webform" id="webform"">
+			<div class="row">	 
+			<div class="col-xs-12">
+				<div>
+					<br>
+					<label>*Mentor Code</label><br>
+					<input required type="text" id="MentorCode" size="6" maxlength="6"/>
+					<br><em hidden style="color:Red" id="MentorCodeEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>*Student Code</label><br>
+					<input required type="text" id="StudentCode" size="6" maxlength="6"/>
+					<br><em hidden style="color:Red" id="StudentCodeEM">Please enter a value</em>
+				</div>
+				<div>
+					<br>
+					<label>Driving:</label><span style="padding-left: 15px;"><label>EE</label>&nbsp;<input type="radio" name="driving" id="driveEE"/>&nbsp;<label>ME</label>&nbsp;<input type="radio" name="driving" id="driveME"/>&nbsp;<label>DNME</label>&nbsp;<input type="radio" name="driving" id="driveDNME"/>
+					<br>
+					<label>Backing:</label><span style="padding-left: 9px;"><label>EE</label>&nbsp;<input type="radio" name="backing" id="backEE"/>&nbsp;<label>ME</label>&nbsp;<input type="radio" name="backing" id="backME"/>&nbsp;<label>DNME</label>&nbsp;<input type="radio" name="backing" id="backDNME"/>
+					<br>
+					<label>PreTrip:</label><span style="padding-left: 15px;"><label>EE</label>&nbsp;<input type="radio" name="pretrip" id="pretripEE"/>&nbsp;<label>ME</label>&nbsp;<input type="radio" name="pretrip" id="pretripME"/>&nbsp;<label>DNME</label>&nbsp;<input type="radio" name="pretrip" id="pretripDNME"/>
+					<br>
+					<label>HOS:</label><span style="padding-left: 33px;"><label>EE</label>&nbsp;<input type="radio" name="hos" id="hosEE"/>&nbsp;<label>ME</label>&nbsp;<input type="radio" name="hos" id="hosME"/>&nbsp;<label>DNME</label>&nbsp;<input type="radio" name="hos" id="hosDNME"/>
+				</div>				
+				<div class="form-group">
+				  <br>
+				  <label for="MentorComments">Mentor Comments</label>
+				  <textarea class="form-control" rows="2"  id="MentorComments" maxlength='59'></textarea>
+				</div>  				
+				<div class="form-group">
+				  <br>
+				  <label for="StudentComments">Student Comments</label>
+				  <textarea class="form-control" rows="2"  id="StudentComments" maxlength='58'></textarea>
+				</div>
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2"></div>
+					<div class="col-xs-2">
+						<div class="col-xs-2">
+							<input class="btn btn-info" type="button" value="Submit" onClick="sendToTransFlo()"><br><br>
+						</div>
+					</div>
+				</div>
+			</form>
+			<script type="application/javascript">				
+				
+				function sendToTransFlo() {	
+					var MentorCode = document.getElementById('MentorCode').value;
+					var StudentCode = document.getElementById('StudentCode').value;					
+					var driveEE = document.getElementById('driveEE').checked;					
+					var driveME = document.getElementById('driveME').checked;
+					var driveDNME = document.getElementById('driveDNME').checked;
+					var backEE = document.getElementById('backEE').checked;
+					var backME = document.getElementById('backME').checked;
+					var backDNME = document.getElementById('backDNME').checked;
+					var pretripEE = document.getElementById('pretripEE').checked;
+					var pretripME = document.getElementById('pretripME').checked;
+					var pretripDNME = document.getElementById('pretripDNME').checked;
+					var hosEE = document.getElementById('hosEE').checked;
+					var hosME = document.getElementById('hosME').checked;
+					var hosDNME = document.getElementById('hosDNME').checked;					
+					var MentorComments = document.getElementById('MentorComments').value;
+					var StudentComments = document.getElementById('StudentComments').value;
+					
+					//validate field values are correct/not null
+					if (MentorCode.length == 0) {
+						//alert("Please enter a Mentor Code");
+						document.getElementById('MentorCodeEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('MentorCodeEM').setAttribute("hidden",true);
+					}
+					if (StudentCode.length == 0) {
+						//alert("Please enter a Student Code");
+						document.getElementById('StudentCodeEM').removeAttribute("hidden");
+						return;					
+					} 
+					else {//in case it had been previously flagged
+						document.getElementById('StudentCodeEM').setAttribute("hidden",true);
+					}
+					if (MentorComments.length == 0) {
+						MentorComments = "";
+					}
+					if (StudentComments.length == 0) {
+						StudentComments = "";
+					}
+					
+					//create JSON to pass back data to webservice
+					var json = JSON.stringify(
+							{
+								"metafields": [
+									{
+										"id": "MentorCode",
+										"value": MentorCode
+									},
+									{
+										"id": "StudentCode",
+										"value": StudentCode
+									},
+									{
+										"id": "driveEE",
+										"value": driveEE
+									},
+									{
+										"id": "driveME",
+										"value": driveME
+									},
+									{
+										"id": "driveDNME",
+										"value": driveDNME
+									},
+									{
+										"id": "backEE",
+										"value": backEE
+									},
+									{
+										"id": "backME",
+										"value": backME
+									},
+									{
+										"id": "backDNME",
+										"value": backDNME
+									},
+									{
+										"id": "pretripEE",
+										"value": pretripEE
+									},
+									{
+										"id": "pretripME",
+										"value": pretripME
+									},
+									{
+										"id": "pretripDNME",
+										"value": pretripDNME
+									},
+									{
+										"id": "hosEE",
+										"value": hosEE
+									},
+									{
+										"id": "hosME",
+										"value": hosME
+									},
+									{
+										"id": "hosDNME",
+										"value": hosDNME
+									},
+									{
+										"id": "MentorComments",
+										"value": MentorComments
+									},
+									{
+										"id": "StudentComments",
+										"value": StudentComments
+									}
+								]
+							});
+					//alert(json);
+
+					TRANSFLOWebFormListener.formSubmitted(json);
+					document.getElementById('webform').submit();										
+				}
+				
+			</script>
+		</div>
+	</body>
+</html>
